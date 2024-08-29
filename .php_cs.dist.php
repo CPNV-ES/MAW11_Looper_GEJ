@@ -97,6 +97,13 @@ return (new PhpCsFixer\Config())
         'space_after_semicolon' => true,
         // 'single_blank_line_at_eof' => false
     ])
-    // ->setIndent("\t")
+    ->setIndent("\t")
     ->setLineEnding("\n")
+    ->setFinder(
+        (new Finder())
+            ->ignoreDotFiles(false)
+            ->ignoreVCSIgnored(true)
+            ->exclude([])
+            ->in(__DIR__)
+    )
 ;
