@@ -15,4 +15,4 @@ jobs:
             - name: Commit changes
               uses: stefanzweifel/git-auto-commit-action@v4
               with:
-                  commit_message: [Action][php-cs-fixer] Fix styling
+                  commit_message: "[Action][php-cs-fixer] Fix styling"
