@@ -7,7 +7,7 @@ return (new PhpCsFixer\Config())
 		'array_syntax' => ['syntax' => 'short'],
 		'combine_consecutive_unsets' => true,
 		'class_attributes_separation' => ['elements' => ['method' => 'one', ]],
-'multiline_whitespace_before_semicolons' => false,
+		'multiline_whitespace_before_semicolons' => false,
 		'single_quote' => true,
 
 		'binary_operator_spaces' => [
