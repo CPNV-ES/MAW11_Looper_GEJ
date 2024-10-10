@@ -26,19 +26,10 @@ class Postgresql
 	{
 		if ($args) {
 			$statement = $this->db->prepare($squery);
-			$statement->bindParam(':id', $args[':id']);
-			foreach ($args as $key => $value) {
-				if (is_int($value)) {
-					$statement->bindParam(':' . $key, $value);
-				} else {
-					$statement->bindParam(':' . $key, $value);
-				}
-			}
-			$statement->execute();
 		} else {
-			$this->db->exec($squery);
+			$statement = $this->db->query($squery);
 		}
 
-		return;
+		$statement->execute($args);
 	}
 }

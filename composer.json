@@ -1,0 +1,6 @@
+{
+    "name": "gej/looper",
+    "require-dev": {
+        "phpunit/phpunit": "^11.3"
+    }
+}

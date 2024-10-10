@@ -17,6 +17,7 @@ services:
       - ./src:/var/www/src
       - ./public:/var/www/html 
       - ./.env:/var/www/.env
+      - ./vendor:/var/www/vendor
     networks:
       - internal
     environment:

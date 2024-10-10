@@ -1,6 +1,8 @@
 <?php
 $title = 'Page Not Found';
 
+http_response_code(404);
+
 ob_start();
 ?>
 

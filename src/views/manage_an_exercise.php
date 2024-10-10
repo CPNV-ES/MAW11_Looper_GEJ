@@ -28,11 +28,13 @@ ob_start();
           <tr>
             <td><?= $exercise->getTitle() ?></td>
             <td>
-              <a title="Be ready for answers" rel="nofollow" data-method="put"
-                href="/exercises/<?= $exercise->getId() ?>?exercise%5Bstatus%5D=answering"><i class="fa fa-comment"></i></a>
+              <?php if ($exercise->getFieldsCount() > 0) {?>
+                <a title="Be ready for answers" rel="nofollow" data-method="put"
+                  href="/exercises/<?= $exercise->getId() ?>?exercise%5Bstatus%5D=answering"><i class="fa fa-comment"></i></a>
+              <?php }?>
               <a title="Manage fields" href="/exercises/<?= $exercise->getId() ?>/fields"><i class="fa fa-edit"></i></a>
               <a data-confirm="Are you sure?" title="Destroy" rel="nofollow" data-method="delete"
-                href="/exercises/<?= $exercise->getId() ?>"><i class="fa fa-trash"></i></a>
+                href="/exercises/<?= $exercise->getId() ?>/delete"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
           <?php endforeach; ?>
@@ -82,7 +84,7 @@ ob_start();
             <td>
               <a title="Show results" href="/exercises/<?= $exercise->getId() ?>/results"><i class="fa fa-chart-bar"></i></a>
               <a data-confirm="Are you sure?" title="Destroy" rel="nofollow" data-method="delete"
-                href="/exercises/<?= $exercise->getId() ?>"><i class="fa fa-trash"></i></a>
+                href="/exercises/<?= $exercise->getId() ?>/delete"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
           <?php endforeach; ?>

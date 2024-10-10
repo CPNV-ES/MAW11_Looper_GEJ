@@ -1,6 +1,8 @@
 <?php
 $title = 'Bad Request';
 
+http_response_code(400);
+
 ob_start();
 ?>
 

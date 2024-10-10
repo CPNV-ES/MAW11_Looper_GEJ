@@ -24,7 +24,7 @@ CREATE TABLE "fulfillments_data" (
   "body" text NOT NULL
 );
 
-ALTER TABLE "fields" ADD FOREIGN KEY ("exercise_id") REFERENCES "exercises" ("id");
+ALTER TABLE "fields" ADD FOREIGN KEY ("exercise_id") REFERENCES "exercises" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "fulfillments" ADD FOREIGN KEY ("exercise_id") REFERENCES "exercises" ("id");
 
