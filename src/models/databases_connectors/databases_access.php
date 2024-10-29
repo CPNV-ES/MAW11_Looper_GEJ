@@ -1,5 +1,7 @@
 <?php
 
+define('ALL_EXERCISES', -1);
+
 interface DatabasesAccess
 {
 	public function doesExerciseExist(int $id): bool;
@@ -8,7 +10,7 @@ interface DatabasesAccess
 
 	public function getExerciseTitle(int $id): string;
 
-	public function getExercises(int $status = -1): array;
+	public function getExercises(int $status = ALL_EXERCISES): array;
 
 	public function getFields(int $exercise_id): array;
 

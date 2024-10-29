@@ -54,13 +54,8 @@ class Navigation
 	{
 		$exercise = null;
 		$field = null;
-		try {
-			$exercise = new Exercise($exerciseId);
-			$field = new Field($id);
-		} catch (Exception $e) {
-			lost();
-			return;
-		}
+		$exercise = new Exercise($exerciseId);
+		$field = new Field($id);
 
 		if (!$exercise->isFieldInExercise($field)) {
 			lost();

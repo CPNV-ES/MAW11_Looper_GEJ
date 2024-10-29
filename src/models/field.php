@@ -21,7 +21,7 @@ class Field
 		$this->database_access = (new DatabasesChoose())->getDatabase();
 
 		if (!$this->database_access->doesFieldExist($id)) {
-			throw new Exception('Field Does Not Exist');
+			throw new FieldNotFoundException();
 		}
 	}
 
@@ -60,5 +60,13 @@ class Field
 	public function delete()
 	{
 		$this->database_access->deleteField($this->id);
+	}
+}
+
+class FieldNotFoundException extends LooperException
+{
+	public function __construct($message = 'The field does not exist', $code = 0, Exception $previous = null)
+	{
+		parent::__construct(404, 'Field not found', $message, $code, $previous);
 	}
 }
