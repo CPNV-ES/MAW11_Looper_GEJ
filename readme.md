@@ -1,7 +1,7 @@
 # MAW11_Looper_GEJ 
 ## Description
 
-This is a project for the MAW11 course. We're supposed to rewrite [this website](https://maw-looper.mycpnv.ch)
+This is a project for the MAW11 course. We're supposed to remake [this website](https://maw-looper.mycpnv.ch)
 
 ## Getting Started
 ### Prerequisites
@@ -68,7 +68,7 @@ docker-compose up -f docker-compose-prod.yml
   * [How to commit](https://www.conventionalcommits.org/en/v1.0.0/)
   * [How to use your workflow](https://nvie.com/posts/a-successful-git-branching-model/)
   * [PSR12](https://www.php-fig.org/psr/psr-12/)
-  * we use [IceCrum](https://icescrum.cpnv.ch/p/MAW11GEJ/#/project) for project management
+  * we use [IceScrum](https://icescrum.cpnv.ch/p/MAW11GEJ/#/project) for project management
 
 ## License
 
