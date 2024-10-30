@@ -11,6 +11,9 @@ class DatabasesChoose
 
 	public function __construct()
 	{
+		if(!isset(self::$database)) {
+			return;
+		}
 		switch ($this->databases) {
 			default:
 				self::$database = new PostgresqlAccess('postgresql', 5432, 'db_looper', $_ENV['POSTGRES_USER'], $_ENV['POSTGRES_PASSWORD']);

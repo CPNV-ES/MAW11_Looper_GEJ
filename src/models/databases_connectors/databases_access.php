@@ -14,6 +14,12 @@ interface DatabasesAccess
 
 	public function doesFieldExist(int $id): bool;
 
+	public function doesFulfillmentExist(int $id): bool;
+
+	public function getFulfillmentField(int $id): int;
+
+	public function getFulfillmentBody(int $id): string;
+
 	public function getFieldLabel(int $id): string;
 
 	public function getFieldKind(int $id): int;

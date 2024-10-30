@@ -53,6 +53,21 @@ class PostgresqlAccess implements DatabasesAccess
 		return count($this->postgresql->select('SELECT id FROM fields WHERE id = :id', [':id' => $id])) > 0;
 	}
 
+	public function doesFulfillmentExist(int $id): bool
+	{
+		return count($this->postgresql->select('SELECT id FROM fulfillments WHERE id = :id', [':id' => $id])) > 0;
+	}
+
+	public function getFulfillmentField(int $id): int
+	{
+		return $this->postgresql->select('SELECT fulfillments_data.field_id FROM fulfillments INNER JOIN fulfillments_data ON fulfillments.id = fulfillments_data.fulfilment_id WHERE id = :id ', [':id' => $id])[0][0];
+	}
+
+	public function getFulfillmentBody(int $id): string
+	{
+		return $this->postgresql->select('SELECT fulfillments_data.body FROM fulfillments INNER JOIN fulfillments_data ON fulfillments.id = fulfillments_data.fulfilment_id WHERE id = :id ', [':id' => $id])[0][0];
+	}
+
 	public function getFieldLabel(int $id): string
 	{
 		return $this->postgresql->select('SELECT label FROM fields WHERE id = :id', [':id' => $id])[0]['label'];
