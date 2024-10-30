@@ -35,9 +35,9 @@ class PostgresqlAccess implements DatabasesAccess
 		return $result[0]['status'];
 	}
 
-	public function getExercises(int $status = ALL_EXERCISES): array
+	public function getExercises(int $status = -1): array
 	{
-		if ($status == ALL_EXERCISES) {
+		if ($status < 0) {
 			return $this->postgresql->select('SELECT id FROM exercises');
 		}
 		return $this->postgresql->select('SELECT id FROM exercises WHERE status = :status', [':status' => $status]);

@@ -1,21 +1,16 @@
 <?php
 
-function lost($return_code = 404, $error_message = 'Page not found')
+function lost()
 {
-	include VIEW_DIR . '/errors/error.php';
+	include VIEW_DIR . '/errors/lost.php';
 }
 
-function error($return_code, $error_message)
+function badRequest()
 {
-	include VIEW_DIR . '/errors/error.php';
+	include VIEW_DIR . '/errors/bad_request.php';
 }
 
-function badRequest($return_code = 400, $error_message = 'Bad Request')
+function serverError(string $console_log = '')
 {
-	include VIEW_DIR . '/errors/error.php';
-}
-
-function serverError($return_code = 500, $error_message = 'Server Error')
-{
-	include VIEW_DIR . '/errors/error.php';
+	include VIEW_DIR . '/errors/server_error.php';
 }

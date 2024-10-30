@@ -23,7 +23,12 @@ class FieldController
 
 		$exercise = null;
 
-		$exercise = new Exercise($exercise_id);
+		try {
+			$exercise = new Exercise($exercise_id);
+		} catch (Exception $e) {
+			lost();
+			return;
+		}
 
 		$kind = $this->kindStringToKindEnum($_POST['field']['value_kind']);
 
@@ -36,11 +41,16 @@ class FieldController
 	{
 		$exercise = null;
 
-		$exercise = new Exercise($exercise_id);
-		$field = new Field($field_id);
+		try {
+			$exercise = new Exercise($exercise_id);
+			$field = new Field($field_id);
 
-		if ($exercise->isFieldInExercise($field)) {
-			$field->delete();
+			if ($exercise->isFieldInExercise($field)) {
+				$field->delete();
+			}
+		} catch (Exception) {
+			lost();
+			return;
 		}
 
 		header('Location: /exercises/' . $exercise_id . '/fields');
@@ -51,8 +61,13 @@ class FieldController
 		$exercise = null;
 		$field = null;
 
-		$exercise = new Exercise($exercise_id);
-		$field = new Field($field_id);
+		try {
+			$exercise = new Exercise($exercise_id);
+			$field = new Field($field_id);
+		} catch (Exception) {
+			lost();
+			return;
+		}
 
 		if (!$exercise->isFieldInExercise($field)) {
 			lost();
