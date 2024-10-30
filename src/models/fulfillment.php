@@ -1,13 +1,13 @@
-<?
+<?php
 
 require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
 
 class Fulfillment
 {
-    private DatabasesAccess $database_access;
- 	private int $id;
+	private DatabasesAccess $database_access;
+	private int $id;
 
-    public function __construct(int $id)
+	public function __construct(int $id)
 	{
 		$this->id = $id;
 
@@ -18,13 +18,13 @@ class Fulfillment
 		}
 	}
 
-    public function getField()
-    {
-        return new Field($this->database_access->getFulfillmentField($this->id));
-    }
+	public function getField()
+	{
+		return new Field($this->database_access->getFulfillmentField($this->id));
+	}
 
 	public function getBody()
 	{
-    	return $this->database_access->getFulfillmentBody($this->id);
+		return $this->database_access->getFulfillmentBody($this->id);
 	}
 }

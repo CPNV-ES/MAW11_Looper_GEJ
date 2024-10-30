@@ -11,7 +11,7 @@ class DatabasesChoose
 
 	public function __construct()
 	{
-		if(!isset(self::$database)) {
+		if (!isset(self::$database)) {
 			return;
 		}
 		switch ($this->databases) {

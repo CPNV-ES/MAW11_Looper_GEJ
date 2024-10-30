@@ -12,13 +12,12 @@ $entry = [
 
 class FulfillmentController
 {
-    public function createFulfillment(int $exercise_id)
+	public function createFulfillment(int $exercise_id)
 	{
-        if (!isset($_POST['fulfillment']['answers_attributes'])){
-            badRequest();
-            return;
-        }
+		if (!isset($_POST['fulfillment']['answers_attributes'])) {
+			badRequest();
+			return;
+		}
 		echo json_encode($_POST);
-
 	}
 }
