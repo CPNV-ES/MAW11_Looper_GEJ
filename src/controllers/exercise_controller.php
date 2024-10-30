@@ -29,7 +29,12 @@ class ExerciseController
 
 	public function deleteExercise(int $id)
 	{
-		$exercise = new Exercise($id);
+		try {
+			$exercise = new Exercise($id);
+		} catch (Exception $e) {
+			lost();
+			return;
+		}
 
 		if ($exercise->getStatus() == Status::Building || $exercise->getStatus() == Status::Closed) {
 			$exercise->delete();
@@ -45,7 +50,12 @@ class ExerciseController
 		}
 
 		$exercise = null;
-		$exercise = new Exercise($id);
+		try {
+			$exercise = new Exercise($id);
+		} catch (Exception) {
+			lost();
+			return;
+		}
 
 		if ($exercise->getFieldsCount() < 1) {
 			badRequest();

@@ -55,11 +55,8 @@ class Router
 						$method = str_replace($route_id, '(' . explode(':', $route_id)[2] . ")\"$route_value\"", $method);
 					}
 				}
-				try {
-					eval('$inst->' . $method . ';');
-				} catch (LooperException $e) {
-					error($e->getReturnCode(), $e->getErrorMessage());
-				}
+
+				eval('$inst->' . $method . ';');
 				return true;
 			}
 		}
