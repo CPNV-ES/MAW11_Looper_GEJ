@@ -42,7 +42,7 @@ php -S localhost:8000 -t public
 ### On integration environment
 
 ```bash
-docker-compose up -f docker-compose-prod.yml 
+docker-compose -f docker-compose-prod.yml up
 ```
 
 ## Directory structure
