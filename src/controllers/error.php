@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -54,7 +55,7 @@ function unauthorized($return_code = 401, $error_message = 'Unauthorized')
 }
 
 /**
- * send a 500 error code with a Server Error 
+ * send a 500 error code with a Server Error
  *
  * @param  int $return_code
  * @param  string $error_message

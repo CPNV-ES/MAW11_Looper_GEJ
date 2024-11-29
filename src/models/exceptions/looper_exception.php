@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -9,14 +10,14 @@ class LooperException extends Exception
 {
 	private int $httpReturnCode = 0;
 	private string $httpErrorMessage = '';
-	
+
 	/**
 	 * __construct
 	 *
 	 * @param  int $httpReturnCode http error code
 	 * @param  string $httpErrorMessage http error message
 	 * @param  string $message error message
-	 * @param  int $code erro code 
+	 * @param  int $code erro code
 	 * @param  Exception $previous last exception throwed
 	 * @return void
 	 */
@@ -26,7 +27,7 @@ class LooperException extends Exception
 		$this->httpReturnCode = $httpReturnCode;
 		$this->httpErrorMessage = $httpErrorMessage;
 	}
-	
+
 	/**
 	 * get http return code
 	 *
@@ -36,7 +37,7 @@ class LooperException extends Exception
 	{
 		return $this->httpReturnCode;
 	}
-	
+
 	/**
 	 * get http error message
 	 *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -11,7 +12,7 @@ include_once MODEL_DIR . '/exercise.php';
  * Navigation controller to get the GUI
  */
 class Navigation
-{	
+{
 	/**
 	 * home page
 	 *
@@ -21,7 +22,7 @@ class Navigation
 	{
 		include VIEW_DIR . '/home.php';
 	}
-	
+
 	/**
 	 * create an exercises page
 	 *
@@ -31,7 +32,7 @@ class Navigation
 	{
 		include VIEW_DIR . '/create_an_exercise.php';
 	}
-	
+
 	/**
 	 * take an exercises page
 	 *
@@ -42,7 +43,7 @@ class Navigation
 		$exercises = Exercise::getExercises(Status::Answering);
 		include VIEW_DIR . '/take_an_exercise.php';
 	}
-	
+
 	/**
 	 * manage an exercises
 	 *
@@ -56,7 +57,7 @@ class Navigation
 
 		include VIEW_DIR . '/manage_an_exercise.php';
 	}
-	
+
 	/**
 	 * manage a field page
 	 *
@@ -75,7 +76,7 @@ class Navigation
 
 		include VIEW_DIR . '/manage_field.php';
 	}
-	
+
 	/**
 	//  * edit a Field page
 	 *
@@ -100,7 +101,7 @@ class Navigation
 
 		include VIEW_DIR . '/edit_a_field.php';
 	}
-	
+
 	/**
 	 * take page is the page to answer exercise
 	 *
@@ -121,7 +122,7 @@ class Navigation
 
 		include VIEW_DIR . '/take.php';
 	}
-	
+
 	/**
 	 * show results of an exerise
 	 *
@@ -133,7 +134,7 @@ class Navigation
 		$exercise = new Exercise($id);
 		include VIEW_DIR . '/show_exercise_results.php';
 	}
-	
+
 	/**
 	 * show field results
 	 *
@@ -153,7 +154,7 @@ class Navigation
 
 		include VIEW_DIR . '/show_field_results.php';
 	}
-	
+
 	/**
 	 * show fulfillment results
 	 *
@@ -174,7 +175,7 @@ class Navigation
 
 		include VIEW_DIR . '/show_fulfillment_results.php';
 	}
-	
+
 	/**
 	 * edit a fullfillment
 	 *

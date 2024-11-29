@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  This file is for the field controller without the View 
+ * @description  This file is for the field controller without the View
  */
 
 require_once MODEL_DIR . '/exercise.php';
@@ -11,7 +12,7 @@ require_once MODEL_DIR . '/exercise.php';
  * FieldController
  */
 class FieldController
-{	
+{
 	/**
 	 * create a field
 	 *
@@ -35,7 +36,7 @@ class FieldController
 
 		header('Location: /exercises/' . $exercise_id . '/fields');
 	}
-	
+
 	/**
 	 * delete a field
 	 *
@@ -56,7 +57,7 @@ class FieldController
 
 		header('Location: /exercises/' . $exercise_id . '/fields');
 	}
-	
+
 	/**
 	 * edit a field
 	 *
@@ -84,7 +85,7 @@ class FieldController
 
 		header('Location: /exercises/' . $exercise_id . '/fields/' . $field_id . '/edit');
 	}
-	
+
 	/**
 	 * kindStringToKindEnum
 	 *

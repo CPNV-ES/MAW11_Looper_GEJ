@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  This file is for the fulfillment controller without the View 
+ * @description  This file is for the fulfillment controller without the View
  */
 
 include_once MODEL_DIR . '/exercise.php';
@@ -11,7 +12,7 @@ include_once MODEL_DIR . '/exercise.php';
  * FulfillmentController
  */
 class FulfillmentController
-{	
+{
 	/**
 	 * create a fulfillment
 	 *
@@ -47,7 +48,7 @@ class FulfillmentController
 
 		header('Location: /exercises/' . $exercise->getId() . '/fulfillments/' . $fulfillment->getId() . '/edit');
 	}
-	
+
 	/**
 	 * edit a fulfillment
 	 *

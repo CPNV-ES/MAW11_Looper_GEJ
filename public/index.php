@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  entry point of the application 
+ * @description  entry point of the application
  */
 
 session_start();

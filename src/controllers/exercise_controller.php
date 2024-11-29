@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description This file is for the excercise controller without the view 
+ * @description This file is for the excercise controller without the view
  */
 
 include_once MODEL_DIR . '/exercise.php';
@@ -11,7 +12,7 @@ include_once MODEL_DIR . '/exercise.php';
  * ExerciseController
  */
 class ExerciseController
-{	
+{
 	/**
 	 * create an exercise
 	 *
@@ -27,7 +28,7 @@ class ExerciseController
 		$exercise = Exercise::create($_POST['exercise_title']);
 		header('Location: /exercises/' . $exercise->getId() . '/fields');
 	}
-	
+
 	/**
 	 * Delete an exercise
 	 *
@@ -43,7 +44,7 @@ class ExerciseController
 		}
 		header('Location: /exercises');
 	}
-	
+
 	/**
 	 * Change state of an exercise
 	 *

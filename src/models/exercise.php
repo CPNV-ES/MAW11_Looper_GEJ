@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  Exercise class 
+ * @description  Exercise class
  */
 
 require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
@@ -23,7 +24,7 @@ class Exercise
 {
 	private DatabasesAccess $database_access;
 	private int $id;
-	
+
 	/**
 	 * Exerise constructor
 	 *
@@ -39,7 +40,7 @@ class Exercise
 
 		$this->id = $id;
 	}
-	
+
 	/**
 	 * create an exericse
 	 *
@@ -51,7 +52,7 @@ class Exercise
 		$database_access = (new DatabasesChoose())->getDatabase();
 		return new self($database_access->createExercise($title));
 	}
-	
+
 	/**
 	 * get exerise id
 	 *
@@ -61,7 +62,7 @@ class Exercise
 	{
 		return $this->id;
 	}
-	
+
 	/**
 	 * get exerise title
 	 *
@@ -71,7 +72,7 @@ class Exercise
 	{
 		return $this->database_access->getExerciseTitle($this->id);
 	}
-	
+
 	/**
 	 * get exercise fields
 	 *
@@ -85,7 +86,7 @@ class Exercise
 		}
 		return $array_field;
 	}
-	
+
 	/**
 	 * create field exerises
 	 *
@@ -100,7 +101,7 @@ class Exercise
 		}
 		return new Field($this->database_access->createField($this->id, $label, $kind->value));
 	}
-	
+
 	/**
 	 * is field in exeercise
 	 *
@@ -111,7 +112,7 @@ class Exercise
 	{
 		return $this->database_access->isFieldInExercise($this->id, $field->getId());
 	}
-	
+
 	/**
 	 * is fulfillment in exercise
 	 *
@@ -122,7 +123,7 @@ class Exercise
 	{
 		return $this->database_access->isFulfillmentInExercise($this->id, $fulfillment->getId());
 	}
-	
+
 	/**
 	 * delete an exercise
 	 *
@@ -132,9 +133,9 @@ class Exercise
 	{
 		$this->database_access->deleteExercise($this->id);
 	}
-	
+
 	/**
-	 * get exercises 
+	 * get exercises
 	 *
 	 * @param  Status $status
 	 * @return array[Exercise]
@@ -157,7 +158,7 @@ class Exercise
 
 		return $exercises;
 	}
-	
+
 	/**
 	 * get status of an exercise
 	 *
@@ -167,7 +168,7 @@ class Exercise
 	{
 		return Status::from($this->database_access->getExerciseStatus($this->id));
 	}
-	
+
 	/**
 	 * set Exercise As
 	 *
@@ -178,7 +179,7 @@ class Exercise
 	{
 		$this->database_access->setExerciseStatus($this->id, $status->value);
 	}
-	
+
 	/**
 	 * get number of field in exercise
 	 *
@@ -188,9 +189,9 @@ class Exercise
 	{
 		return $this->database_access->getFieldsCount($this->id);
 	}
-	
+
 	/**
-	 * create Fulfillment 
+	 * create Fulfillment
 	 *
 	 * @return Fulfillment
 	 */
@@ -201,7 +202,7 @@ class Exercise
 		}
 		return new Fulfillment($this->database_access->createFulfillment($this->id));
 	}
-	
+
 	/**
 	 * get all fulfillments
 	 *

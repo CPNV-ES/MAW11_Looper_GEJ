@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -15,10 +16,10 @@ class DatabasesChoose
 	// static for now but should be in a dynamic config
 	private string $databases = 'postgresql';
 	private static DatabasesAccess $database;
-	
+
 	/**
 	 * DatabasesChoose contructor
- 	 *
+	 *
 	 * @return void
 	 */
 	public function __construct()
@@ -31,7 +32,7 @@ class DatabasesChoose
 				self::$database = new PostgresqlAccess('postgresql', 5432, 'db_looper', $_ENV['POSTGRES_USER'], $_ENV['POSTGRES_PASSWORD']);
 		}
 	}
-	
+
 	/**
 	 * get dataases access implement with the correct databases
 	 *

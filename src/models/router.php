@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -52,7 +53,7 @@ class Router
 			'controller_file_name' => 'navigation.php'
 		]
 	];
-	
+
 	/**
 	 * run the good function in the controller path with specified path
 	 *

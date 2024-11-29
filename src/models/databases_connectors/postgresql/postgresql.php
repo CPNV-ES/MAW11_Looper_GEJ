@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -12,7 +13,7 @@ class Postgresql
 	{
 		$this->db = new PDO('pgsql:host=' . $host . ';port=' . $port . ';dbname=' . $dbname, $postgres_user, $postgres_password);
 	}
-	
+
 	/**
 	 * select (all select, returning at the end of an insert) basicly all that is returning somethings
 	 *
@@ -32,7 +33,7 @@ class Postgresql
 
 		return $statement->fetchAll();
 	}
-	
+
 	/**
 	 * modify (insert, update) basicly all that isn't returning anything
 	 *

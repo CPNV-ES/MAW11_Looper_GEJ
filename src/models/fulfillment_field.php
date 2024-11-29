@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
@@ -14,9 +15,9 @@ require_once MODEL_DIR . '/field.php';
 class FulfillmentField extends Field
 {
 	private $fulfillment_id;
-	
+
 	/**
-	 * Contructor of the FulfillmentField 
+	 * Contructor of the FulfillmentField
 	 *
 	 * @param  int $field_id
 	 * @param  int $fulfillment_id
@@ -32,7 +33,7 @@ class FulfillmentField extends Field
 			throw new FulfillmentNotFoundException();
 		}
 	}
-	
+
 	/**
 	 * get fulfillment id
 	 *
@@ -42,7 +43,7 @@ class FulfillmentField extends Field
 	{
 		return $this->fulfillment_id;
 	}
-	
+
 	/**
 	 * get fulfillment body
 	 *
@@ -52,7 +53,7 @@ class FulfillmentField extends Field
 	{
 		return $this->database_access->getFulfillmentBody(parent::getId(), $this->fulfillment_id);
 	}
-	
+
 	/**
 	 * set body
 	 *

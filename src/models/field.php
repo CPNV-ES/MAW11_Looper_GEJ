@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  Field class 
+ * @description  Field class
  */
 
 require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
@@ -22,7 +23,7 @@ class Field
 {
 	protected DatabasesAccess $database_access;
 	private int $id;
-	
+
 	/**
 	 * Field contructor
 	 *
@@ -39,7 +40,7 @@ class Field
 			throw new FieldNotFoundException();
 		}
 	}
-	
+
 	/**
 	 * get field id
 	 *
@@ -49,7 +50,7 @@ class Field
 	{
 		return $this->id;
 	}
-	
+
 	/**
 	 * get field label
 	 *
@@ -59,7 +60,7 @@ class Field
 	{
 		return $this->database_access->getFieldLabel($this->id);
 	}
-	
+
 	/**
 	 * fet field kind
 	 *
@@ -76,7 +77,7 @@ class Field
 				return Kind::SingleLineText;
 		}
 	}
-	
+
 	/**
 	 * set field label
 	 *
@@ -90,7 +91,7 @@ class Field
 		}
 		$this->database_access->setFieldLabel($this->id, $label);
 	}
-	
+
 	/**
 	 * set field kind
 	 *
@@ -104,7 +105,7 @@ class Field
 		}
 		$this->database_access->setFieldKind($this->id, $kind->value);
 	}
-	
+
 	/**
 	 * delete a field
 	 *
@@ -117,7 +118,7 @@ class Field
 		}
 		$this->database_access->deleteField($this->id);
 	}
-	
+
 	/**
 	 * get field exercise
 	 *

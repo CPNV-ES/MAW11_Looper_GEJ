@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  Fulfillment class 
+ * @description  Fulfillment class
  */
 
 require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
@@ -14,7 +15,7 @@ class Fulfillment
 {
 	private DatabasesAccess $database_access;
 	private int $id;
-	
+
 	/**
 	 * Constructor of fulfillment
 	 *
@@ -31,9 +32,9 @@ class Fulfillment
 			throw new FulfillmentNotFoundException();
 		}
 	}
-	
+
 	/**
-	 * get fulfillment id 
+	 * get fulfillment id
 	 *
 	 * @return int
 	 */
@@ -51,7 +52,7 @@ class Fulfillment
 	{
 		return $this->database_access->getFulfillmentTimestamp($this->id);
 	}
-	
+
 	/**
 	 * create fulfillment fields data
 	 *
@@ -69,7 +70,7 @@ class Fulfillment
 
 		return new FulfillmentField($field->getId(), $this->id);
 	}
-	
+
 	/**
 	 * get a fields
 	 *
@@ -85,7 +86,7 @@ class Fulfillment
 
 		return $fulfillment;
 	}
-	
+
 	/**
 	 * get exercise of the fulfillment
 	 *
