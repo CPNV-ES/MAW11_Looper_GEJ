@@ -1,9 +1,23 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description  This file is for the fulfillment controller without the View 
+ */
 
 include_once MODEL_DIR . '/exercise.php';
 
+/**
+ * FulfillmentController
+ */
 class FulfillmentController
-{
+{	
+	/**
+	 * create a fulfillment
+	 *
+	 * @param  int $exercise_id
+	 * @return void
+	 */
 	public function createFulfillment(int $exercise_id)
 	{
 		if (!isset($_POST['fulfillment']['answers_attributes'])) {
@@ -33,7 +47,14 @@ class FulfillmentController
 
 		header('Location: /exercises/' . $exercise->getId() . '/fulfillments/' . $fulfillment->getId() . '/edit');
 	}
-
+	
+	/**
+	 * edit a fulfillment
+	 *
+	 * @param  int $exercise_id
+	 * @param  int $fulfillment_id
+	 * @return void
+	 */
 	public function editFulfillment(int $exercise_id, int $fulfillment_id)
 	{
 		if (!isset($_POST['fulfillment']['answers_attributes'])) {

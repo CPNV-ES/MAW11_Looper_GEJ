@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description PostgresqlAccess class implementing DatabasesAccess
+ */
 
 require MODEL_DIR . '/databases_connectors/databases_access.php';
 require MODEL_DIR . '/databases_connectors/postgresql/postgresql.php';

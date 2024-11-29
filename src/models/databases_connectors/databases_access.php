@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description  Database acces implementation if we need to change the database just implement this class that will return the result of for example sql request
+ */
 define('ALL_EXERCISES', -1);
 
 interface DatabasesAccess

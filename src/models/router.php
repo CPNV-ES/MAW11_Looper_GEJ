@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description  This is the router buiness logic and route path
+ */
 
 class Router
 {
@@ -47,7 +52,14 @@ class Router
 			'controller_file_name' => 'navigation.php'
 		]
 	];
-
+	
+	/**
+	 * run the good function in the controller path with specified path
+	 *
+	 * @param  int $request_method
+	 * @param  int $request_uri
+	 * @return bool true if runned successfully instead false
+	 */
 	public function run($request_method, $request_uri)
 	{
 		foreach ($this->controller_entry as $class => $routes) {
@@ -64,6 +76,7 @@ class Router
 
 	private function callRoute($request_method, $request_uri, $class, $routes)
 	{
+		// Iterate on all the route and check if it's the same route then launch the right controller on this route
 		foreach ($routes[$request_method] as $route => $method) {
 			$same_route = $this->isSameRoute($route, request_uri: $request_uri);
 
