@@ -9,12 +9,17 @@
 include_once MODEL_DIR . '/exercise.php';
 
 /**
- * Navigation controller to get the GUI
+ * Navigation Controller
+ * This is the controller responsible for navigating to various views related to exercises,
+ * fulfillments, and fields.
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description  This is the navigation controller that every route redirect to a view
  */
 class Navigation
 {
 	/**
-	 * home page
+	 * Display the home page.
 	 *
 	 * @return void
 	 */
@@ -24,7 +29,7 @@ class Navigation
 	}
 
 	/**
-	 * create an exercises page
+	 * Display the create an exercise page.
 	 *
 	 * @return void
 	 */
@@ -34,7 +39,7 @@ class Navigation
 	}
 
 	/**
-	 * take an exercises page
+	 * Display the take an exercise page.
 	 *
 	 * @return void
 	 */
@@ -45,7 +50,7 @@ class Navigation
 	}
 
 	/**
-	 * manage an exercises
+	 * Display the manage exercises page.
 	 *
 	 * @return void
 	 */
@@ -59,9 +64,9 @@ class Navigation
 	}
 
 	/**
-	 * manage a field page
+	 * Display the manage fields page for a specific exercise.
 	 *
-	 * @param  mixed $id
+	 * @param  mixed $id The ID of the exercise.
 	 * @return void
 	 */
 	public function manageField(int $id)
@@ -77,13 +82,13 @@ class Navigation
 		include VIEW_DIR . '/manage_field.php';
 	}
 
-	/**
-	//  * edit a Field page
-	 *
-	 * @param  int $exercise_id
-	 * @param  int $id the field id
-	 * @return void
-	 */
+/**
+     * Display the edit field page.
+     *
+     * @param int $exercise_id The ID of the exercise.
+     * @param int $id The ID of the field to edit.
+     * @return void
+     */
 	public function editAField(int $exercise_id, int $id)
 	{
 		$exercise = new Exercise($exercise_id);
@@ -103,9 +108,9 @@ class Navigation
 	}
 
 	/**
-	 * take page is the page to answer exercise
+	 * Display the take page for answering an exercise.
 	 *
-	 * @param  int $exercise_id
+	 * @param  int $exercise_id The ID of the exercise.
 	 * @return void
 	 */
 	public function take(int $exercise_id)
@@ -124,9 +129,9 @@ class Navigation
 	}
 
 	/**
-	 * show results of an exerise
+	 * Display the results of an exercise.
 	 *
-	 * @param  int $id of an exercise
+	 * @param $exercise_id The ID of the exercise.
 	 * @return void
 	 */
 	public function showResults(int $id)
@@ -136,10 +141,10 @@ class Navigation
 	}
 
 	/**
-	 * show field results
+	 * Display the results of a specific field in an exercise.
 	 *
-	 * @param  int $exercise_id
-	 * @param  int $field_id
+	 * @param  int $exercise_id The ID of the exercise.
+	 * @param  int $field_id The ID of the field.
 	 * @return void
 	 */
 	public function showFieldResults(int $exercise_id, int $field_id)
@@ -156,10 +161,10 @@ class Navigation
 	}
 
 	/**
-	 * show fulfillment results
+	 * Display the results of a fulfillment.
 	 *
-	 * @param  int $exercise_id
-	 * @param  int $fulfillment_id
+	 * @param  int $exercise_id The ID of the exercise.
+	 * @param  int $fulfillment_id The ID of the fulfillment.
 	 * @return void
 	 */
 	public function showFulfillmentResults(int $exercise_id, int $fulfillment_id): void
@@ -177,10 +182,10 @@ class Navigation
 	}
 
 	/**
-	 * edit a fullfillment
+	 * Display the edit fulfillment page.
 	 *
-	 * @param  int $exercise_id
-	 * @param  int $fulfillment_id
+	 * @param  int $exercise_id The ID of the exercise.
+	 * @param  int $fulfillment_id The ID of the fulfillment to be edited.
 	 * @return void
 	 */
 	public function editFulfillment(int $exercise_id, int $fulfillment_id)
