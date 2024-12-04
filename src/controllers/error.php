@@ -3,14 +3,14 @@
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description This file have function to show an error page when the user is not allowed to access
+ * @description This file contains functions to handle various error responses such as 404 Not Found
  */
 
 /**
- * send a 404 error code with a page not found
+ * Send a 404 Not Found error page.
  *
- * @param  int $return_code
- * @param  string $error_message
+ * @param  int $return_code The HTTP response code to send. Default is 404.
+ * @param  string $error_message The error message to display. Default is 'Page not found'.
  * @return void
  */
 function lost($return_code = 404, $error_message = 'Page not found')
@@ -19,10 +19,10 @@ function lost($return_code = 404, $error_message = 'Page not found')
 }
 
 /**
- * send a generic error specify the return code and error message
+ * Send a generic error with a specified return code and message.
  *
- * @param  int $return_code
- * @param  string $error_message
+ * @param int $return_code The HTTP response code to send.
+ * @param string $error_message The error message to display.
  * @return void
  */
 function error($return_code, $error_message)
@@ -31,10 +31,10 @@ function error($return_code, $error_message)
 }
 
 /**
- * send a 400 error code with a Bad Request
+ * Send a 400 Bad Request error page.
  *
- * @param  int $return_code
- * @param  string $error_message
+ * @param int $return_code The HTTP response code to send. Default is 400.
+ * @param string $error_message The error message to display. Default is 'Bad Request'.
  * @return void
  */
 function badRequest($return_code = 400, $error_message = 'Bad Request')
@@ -43,10 +43,10 @@ function badRequest($return_code = 400, $error_message = 'Bad Request')
 }
 
 /**
- * send a 401 error code with an Unauthorized
+ * Send a 401 Unauthorized error page.
  *
- * @param  int $return_code
- * @param  string $error_message
+ * @param int $return_code The HTTP response code to send. Default is 401.
+ * @param string $error_message The error message to display. Default is 'Unauthorized'.
  * @return void
  */
 function unauthorized($return_code = 401, $error_message = 'Unauthorized')
@@ -55,10 +55,10 @@ function unauthorized($return_code = 401, $error_message = 'Unauthorized')
 }
 
 /**
- * send a 500 error code with a Server Error
+ * Send a 500 Internal Server Error page.
  *
- * @param  int $return_code
- * @param  string $error_message
+ * @param int $return_code The HTTP response code to send. Default is 500.
+ * @param string $error_message The error message to display. Default is 'Server Error'.
  * @return void
  */
 function serverError($return_code = 500, $error_message = 'Server Error')

@@ -9,12 +9,14 @@
 include_once MODEL_DIR . '/exercise.php';
 
 /**
- * ExerciseController
+ * Class ExerciseController
+ *
+ * Manages the backend operations for exercises, including creation, deletion, and state transitions.
  */
 class ExerciseController
 {
 	/**
-	 * create an exercise
+	 * This method creates a new exercise based on the title provided by the user via `$_POST['exercise_title']`.
 	 *
 	 * @return void
 	 */
@@ -30,9 +32,10 @@ class ExerciseController
 	}
 
 	/**
-	 * Delete an exercise
+	 * This method deletes an exercise identified by `$id`. It only allows deletion if the exercise
+	 * is in the `Building` or `Closed` state.
 	 *
-	 * @param int $id
+	 * @param int $id The ID of the exercise to be deleted.
 	 * @return void
 	 */
 	public function deleteExercise(int $id)
@@ -46,9 +49,9 @@ class ExerciseController
 	}
 
 	/**
-	 * Change state of an exercise
+	 * This method changes the state of an exercise identified by `$id`.
 	 *
-	 * @param int $id
+	 * @param int $id The ID of the exercise whose state is to be changed.
 	 * @return void
 	 */
 	public function changeStateOfExercise(int $id)
