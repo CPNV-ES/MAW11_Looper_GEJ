@@ -3,21 +3,22 @@
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  This file is for the fulfillment controller without the View
+ * @description This file contains the fulfillment controller, which handles fulfillment actions.
  */
 
 include_once MODEL_DIR . '/exercise.php';
 
 /**
  * FulfillmentController
+ * This controller class handles actions related to the creation and editing of fulfillments.
  */
 class FulfillmentController
 {
 	/**
-	 * create a fulfillment
-	 *
-	 * @param  int $exercise_id
-	 * @return void
+	 * Create a fulfillment
+	 * This method handles the creation of a fulfillment for a specific exercise, identified by `$exercise_id`.
+	 * @param  int $exercise_id The ID of the exercise for which a new fulfillment is being created.
+	 * @return void This function performs creation and redirects, but does not return a value.
 	 */
 	public function createFulfillment(int $exercise_id)
 	{
@@ -50,11 +51,13 @@ class FulfillmentController
 	}
 
 	/**
-	 * edit a fulfillment
+	 * Edit a fulfillment
+	 * This method handles the editing of an existing fulfillment, identified by `$fulfillment_id`,
+	 * for a specific exercise, identified by `$exercise_id`.
 	 *
-	 * @param  int $exercise_id
-	 * @param  int $fulfillment_id
-	 * @return void
+	 * @param int $exercise_id The ID of the exercise associated with the fulfillment.
+	 * @param int $fulfillment_id The ID of the fulfillment that is being edited.
+	 * @return void This function updates the fulfillment and redirects, without returning a value.
 	 */
 	public function editFulfillment(int $exercise_id, int $fulfillment_id)
 	{
