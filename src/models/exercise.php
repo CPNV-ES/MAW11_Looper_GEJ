@@ -120,7 +120,7 @@ class Exercise
 
 	/**
 	 * Check if a fulfillment is part of the exercise.
-	 * 
+	 *
 	 * @param Fulfillment $fulfillment The fulfillment object to check.
 	 * @return bool Returns true if the fulfillment is part of the exercise, false otherwise.
 	 */
