@@ -6,7 +6,6 @@
  * @description  This is the router buiness logic and route path
  */
 
-
 /**
  * This class is the router buiness logic of the application
  */

@@ -23,7 +23,7 @@ class Fulfillment
 	 * constructor of the fulfillment
 	 *
 	 * @param  int $id the id of the fulfillment
-	 * 
+	 *
 	 * @throws FulfillmentNotFoundException if the fulfillment does not exist
 	 * @return void
 	 */
@@ -59,7 +59,7 @@ class Fulfillment
 	}
 
 	/**
-	 * create fulfillment fields data 
+	 * create fulfillment fields data
 	 *
 	 * @param  Field $field the field to create
 	 * @param  string $body the body of the field

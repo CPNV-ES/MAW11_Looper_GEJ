@@ -46,7 +46,7 @@ class Field
 	}
 
 	/**
-	 * Returns the ID of a field. 
+	 * Returns the ID of a field.
 	 *
 	 * @return int The unique identifier of the object.
 	 */

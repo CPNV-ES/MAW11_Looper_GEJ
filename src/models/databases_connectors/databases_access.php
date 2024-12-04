@@ -6,7 +6,7 @@
  * @description  Database acces implementation if we need to change the database just implement this class that will return the result of for example sql request
  */
 define('ALL_EXERCISES', -1);
- 
+
 /**
  * Interface DatabasesAccess
  *

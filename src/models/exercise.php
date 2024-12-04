@@ -186,7 +186,7 @@ class Exercise
 	}
 
 	/**
-	 * get number of field in exercise 
+	 * get number of field in exercise
 	 *
 	 * @return int the number of field in exercise
 	 */
@@ -212,7 +212,7 @@ class Exercise
 	/**
 	 * Get a list of fulfillments in exercise (All fulfillments in exercise)
 	 *
-	 * @return array[Fulfillment] the list of fulfillments in exercise 
+	 * @return array[Fulfillment] the list of fulfillments in exercise
 	 */
 	public function getFulfillments(): array
 	{
