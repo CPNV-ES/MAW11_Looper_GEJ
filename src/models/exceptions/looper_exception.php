@@ -15,10 +15,10 @@ class LooperException extends Exception
 	private string $httpErrorMessage = '';
 
 	/**
-     * Constructor for LooperException
-     *
-     * Initializes a new instance of the `LooperException` class, extending the standard `Exception`
-     * class to include HTTP-specific error information.
+	 * Constructor for LooperException
+	 *
+	 * Initializes a new instance of the `LooperException` class, extending the standard `Exception`
+	 * class to include HTTP-specific error information.
 	 *
 	 * @param  int $httpReturnCode http error code
 	 * @param  string $httpErrorMessage http error message
@@ -35,11 +35,11 @@ class LooperException extends Exception
 	}
 
 	/**
-     * Get the HTTP return code.
-     *
-     * This method returns the HTTP status code that represents the type of error encountered.
-     *
-     * @return int The HTTP error return code.
+	 * Get the HTTP return code.
+	 *
+	 * This method returns the HTTP status code that represents the type of error encountered.
+	 *
+	 * @return int The HTTP error return code.
 	 */
 	public function getReturnCode(): int
 	{
@@ -47,12 +47,12 @@ class LooperException extends Exception
 	}
 
 	/**
-     * Get the HTTP error message.
-     *
-     * This method returns the HTTP error message, which can provide a more detailed explanation
-     * of the error that occurred, suitable for logging or debugging.
-     *
-     * @return string The HTTP error message.
+	 * Get the HTTP error message.
+	 *
+	 * This method returns the HTTP error message, which can provide a more detailed explanation
+	 * of the error that occurred, suitable for logging or debugging.
+	 *
+	 * @return string The HTTP error message.
 	 */
 	public function getErrorMessage(): string
 	{
