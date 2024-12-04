@@ -6,6 +6,10 @@
  * @description  This is the router buiness logic and route path
  */
 
+
+/**
+ * This class is the router buiness logic of the application
+ */
 class Router
 {
 	private array $controller_entry = [
@@ -57,8 +61,8 @@ class Router
 	/**
 	 * run the good function in the controller path with specified path
 	 *
-	 * @param  int $request_method
-	 * @param  int $request_uri
+	 * @param  int $request_method the method of the request
+	 * @param  int $request_uri the uri of the request
 	 * @return bool true if runned successfully instead false
 	 */
 	public function run($request_method, $request_uri)

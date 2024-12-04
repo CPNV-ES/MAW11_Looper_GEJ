@@ -10,6 +10,9 @@ require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
 require_once MODEL_DIR . '/field.php';
 require_once MODEL_DIR . '/fulfillment.php';
 
+/**
+ * The status of an exercise (Building, Answering, Closed)
+ */
 enum Status: int
 {
 	case Building = 0;
@@ -18,7 +21,7 @@ enum Status: int
 }
 
 /**
- * Exercise
+ * This class represents an exercise
  */
 class Exercise
 {
@@ -26,9 +29,10 @@ class Exercise
 	private int $id;
 
 	/**
-	 * Exerise constructor
+	 * This is the constructor of the exercise class
 	 *
-	 * @param  mixed $id
+	 * @param  int $id the id of the exercise
+	 * @throws ExerciseNotFoundException if the exercise does not exist
 	 * @return void
 	 */
 	public function __construct(int $id)
@@ -42,10 +46,10 @@ class Exercise
 	}
 
 	/**
-	 * create an exericse
+	 * This is a static method to create an exercise
 	 *
-	 * @param  string $title
-	 * @return self
+	 * @param  string $title the title of the exercise
+	 * @return self the created exercise
 	 */
 	public static function create(string $title): self
 	{
@@ -54,9 +58,9 @@ class Exercise
 	}
 
 	/**
-	 * get exerise id
+	 * Get the id of the exercise
 	 *
-	 * @return int
+	 * @return int the id of the exercise
 	 */
 	public function getId()
 	{
@@ -64,9 +68,9 @@ class Exercise
 	}
 
 	/**
-	 * get exerise title
+	 * Get the title of the exercise
 	 *
-	 * @return string
+	 * @return string the title of the exercise
 	 */
 	public function getTitle()
 	{
@@ -74,9 +78,9 @@ class Exercise
 	}
 
 	/**
-	 * get exercise fields
+	 * get exercise list of field in exercise
 	 *
-	 * @return array[Field]
+	 * @return array[Field] the list of field in exercise
 	 */
 	public function getFields(): array
 	{
@@ -88,11 +92,12 @@ class Exercise
 	}
 
 	/**
-	 * create field exerises
+	 * Create a field in the exercise
 	 *
-	 * @param  string $label
-	 * @param  Kind $kind
-	 * @return Field
+	 * @param  string $label the label of the field
+	 * @param  Kind $kind the kind of the field
+	 * @throws ExerciseNotInBuildingStatus if the exercise is not in building status
+	 * @return Field the created field
 	 */
 	public function createField(string $label, Kind $kind): Field
 	{
@@ -103,10 +108,10 @@ class Exercise
 	}
 
 	/**
-	 * is field in exeercise
+	 * Is field in exercise ?
 	 *
-	 * @param  Field $field
-	 * @return bool
+	 * @param  Field $field the field to check
+	 * @return bool true if the field is in the exercise, false otherwise
 	 */
 	public function isFieldInExercise(Field $field): bool
 	{
@@ -125,9 +130,9 @@ class Exercise
 	}
 
 	/**
-	 * delete an exercise
+	 * This method deletes the exercise
 	 *
-	 * @return void
+	 * @return void the deleted exercise
 	 */
 	public function delete()
 	{
@@ -135,10 +140,10 @@ class Exercise
 	}
 
 	/**
-	 * get exercises
+	 * Get all static exercises by status (if status is null, get all exercises)
 	 *
-	 * @param  Status $status
-	 * @return array[Exercise]
+	 * @param  Status $status the status of the exercise default null
+	 * @return array[Exercise] the list of exercises by status
 	 */
 	public static function getExercises(Status $status = null)
 	{
@@ -160,9 +165,9 @@ class Exercise
 	}
 
 	/**
-	 * get status of an exercise
+	 * get status of an exercise (Building, Answering, Closed)
 	 *
-	 * @return Status
+	 * @return Status the status of the exercise (Building, Answering, Closed)
 	 */
 	public function getStatus(): Status
 	{
@@ -170,9 +175,9 @@ class Exercise
 	}
 
 	/**
-	 * set Exercise As
+	 * Set the exercise as a status (Building, Answering, Closed)
 	 *
-	 * @param  Status $status
+	 * @param  Status $status the status to set the exercise as (Building, Answering, Closed)
 	 * @return void
 	 */
 	public function setExerciseAs(Status $status)
@@ -181,9 +186,9 @@ class Exercise
 	}
 
 	/**
-	 * get number of field in exercise
+	 * get number of field in exercise 
 	 *
-	 * @return int
+	 * @return int the number of field in exercise
 	 */
 	public function getFieldsCount(): int
 	{
@@ -191,9 +196,10 @@ class Exercise
 	}
 
 	/**
-	 * create Fulfillment
+	 * create a fulfillment in exercise when the exercise is in answering status
 	 *
-	 * @return Fulfillment
+	 * @throws ExerciseNotInAnsweringStatus if the exercise is not in answering status
+	 * @return Fulfillment the created fulfillment
 	 */
 	public function createFulfillment(): Fulfillment
 	{
@@ -204,9 +210,9 @@ class Exercise
 	}
 
 	/**
-	 * get all fulfillments
+	 * Get a list of fulfillments in exercise (All fulfillments in exercise)
 	 *
-	 * @return array[Fulfillment]
+	 * @return array[Fulfillment] the list of fulfillments in exercise 
 	 */
 	public function getFulfillments(): array
 	{
@@ -219,10 +225,18 @@ class Exercise
 }
 
 /**
- * ExerciseNotFoundException
+ * This exception is thrown when an exercise is not found
  */
 class ExerciseNotFoundException extends LooperException
 {
+	/**
+	 * This is the constructor of the exception
+	 *
+	 * @param  string $message the message of the exception
+	 * @param  int $code the code of the exception
+	 * @param  Exception|null $previous the previous exception
+	 * @return void
+	 */
 	public function __construct($message = 'The exercise does not exist', $code = 0, Exception $previous = null)
 	{
 		// Make sure everything is assigned properly
@@ -231,10 +245,18 @@ class ExerciseNotFoundException extends LooperException
 }
 
 /**
- * ExerciseNotInBuildingStatus
+ * This exception is thrown when an exercise is not in building status
  */
 class ExerciseNotInBuildingStatus extends LooperException
 {
+	/**
+	 * This is the constructor of the exception
+	 *
+	 * @param  string $message the message of the exception
+	 * @param  int $code the code of the exception
+	 * @param  Exception|null $previous the previous exception
+	 * @return void
+	 */
 	public function __construct($message = 'The Exercise is not in building status', $code = 0, Exception|null $previous = null)
 	{
 		parent::__construct(400, 'The Exercise is not in building status', $message, $code, $previous);
@@ -242,10 +264,18 @@ class ExerciseNotInBuildingStatus extends LooperException
 }
 
 /**
- * ExerciseNotInAnsweringStatus
+ * This exception is thrown when an exercise is not in answering status
  */
 class ExerciseNotInAnsweringStatus extends LooperException
 {
+	/**
+	 * This is the constructor of the exception
+	 *
+	 * @param  string $message the message of the exception
+	 * @param  int $code the code of the exception
+	 * @param  Exception|null $previous the previous exception
+	 * @return void
+	 */
 	public function __construct($message = 'The Exercise is not in answering status', $code = 0, Exception|null $previous = null)
 	{
 		parent::__construct(400, 'The Exercise is not in answering status', $message, $code, $previous);

@@ -11,15 +11,20 @@ require_once MODEL_DIR . '/fulfillment_field.php';
 require_once MODEL_DIR . '/field.php';
 require_once MODEL_DIR . '/exercise.php';
 
+/**
+ * This class is the fulfillment buiness logic of the application
+ */
 class Fulfillment
 {
 	private DatabasesAccess $database_access;
 	private int $id;
 
 	/**
-	 * Constructor of fulfillment
+	 * constructor of the fulfillment
 	 *
-	 * @param  int $id
+	 * @param  int $id the id of the fulfillment
+	 * 
+	 * @throws FulfillmentNotFoundException if the fulfillment does not exist
 	 * @return void
 	 */
 	public function __construct(int $id)
@@ -34,9 +39,9 @@ class Fulfillment
 	}
 
 	/**
-	 * get fulfillment id
+	 * Get the id of the fulfillment
 	 *
-	 * @return int
+	 * @return int the id of the fulfillment
 	 */
 	public function getId()
 	{
@@ -46,7 +51,7 @@ class Fulfillment
 	/**
 	 * get fulfillment creation date
 	 *
-	 * @return int
+	 * @return int the timestamp of the creation date
 	 */
 	public function getTimestamp()
 	{
@@ -54,11 +59,11 @@ class Fulfillment
 	}
 
 	/**
-	 * create fulfillment fields data
+	 * create fulfillment fields data 
 	 *
-	 * @param  Field $field
-	 * @param  string $body
-	 * @return FulfillmentField
+	 * @param  Field $field the field to create
+	 * @param  string $body the body of the field
+	 * @return FulfillmentField the created field
 	 */
 	public function createFields(Field $field, string $body)
 	{
@@ -72,9 +77,9 @@ class Fulfillment
 	}
 
 	/**
-	 * get a fields
+	 * get a fields of the fulfillment
 	 *
-	 * @return array[FulfillmentField]
+	 * @return array[FulfillmentField $field] the fields of the fulfillment
 	 */
 	public function getFields()
 	{
@@ -90,7 +95,7 @@ class Fulfillment
 	/**
 	 * get exercise of the fulfillment
 	 *
-	 * @return Exercise
+	 * @return Exercise the exercise of the fulfillment
 	 */
 	public function getExercise()
 	{
@@ -99,10 +104,18 @@ class Fulfillment
 }
 
 /**
- * FulfillmentNotFoundException
+ * This exception is thrown when the fulfillment does not exist
  */
 class FulfillmentNotFoundException extends LooperException
 {
+	/**
+	 * constructor of the exception
+	 *
+	 * @param  string $message the message of the exception Default: 'The fulfillment does not exist'
+	 * @param  int $code the code of the exception Default: 0
+	 * @param  Exception $previous the previous exception Default: null
+	 * @return void
+	 */
 	public function __construct($message = 'The fulfillment does not exist', $code = 0, Exception $previous = null)
 	{
 		parent::__construct(404, 'fulfillment not found', $message, $code, $previous);

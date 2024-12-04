@@ -3,12 +3,15 @@
 /**
  * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
  * @version 29.11.2024
- * @description  Field class
+ * @description This class is the field buiness logic of the application
  */
 
 require_once MODEL_DIR . '/databases_connectors/databases_choose.php';
 require_once MODEL_DIR . '/exercise.php';
 
+/**
+ * The kind of field that can be created
+ */
 enum Kind: int
 {
 	case SingleLineText = 0;
@@ -17,7 +20,7 @@ enum Kind: int
 }
 
 /**
- * Field class
+ * This class is the field buiness logic of the application
  */
 class Field
 {
@@ -25,9 +28,10 @@ class Field
 	private int $id;
 
 	/**
-	 * Field contructor
+	 * The constructor of the field class
 	 *
-	 * @param  int $id
+	 * @param  int $id the id of the field
+	 * @throws FieldNotFoundException if the field does not exist
 	 * @return void
 	 */
 	public function __construct(int $id)
@@ -42,9 +46,9 @@ class Field
 	}
 
 	/**
-	 * get field id
+	 * Returns the ID of a field. 
 	 *
-	 * @return int
+	 * @return int The unique identifier of the object.
 	 */
 	public function getId(): int
 	{
@@ -52,9 +56,9 @@ class Field
 	}
 
 	/**
-	 * get field label
+	 * Get the label of the field
 	 *
-	 * @return string
+	 * @return string the label of the field
 	 */
 	public function getLabel(): string
 	{
@@ -62,9 +66,9 @@ class Field
 	}
 
 	/**
-	 * fet field kind
+	 * Get the kind of the field
 	 *
-	 * @return Kind
+	 * @return Kind the kind of the field
 	 */
 	public function getKind(): Kind
 	{
@@ -79,9 +83,9 @@ class Field
 	}
 
 	/**
-	 * set field label
+	 * Set the label of the field
 	 *
-	 * @param  string $label
+	 * @param  string $label the new label of the field
 	 * @return void
 	 */
 	public function setLabel(string $label): void
@@ -93,9 +97,9 @@ class Field
 	}
 
 	/**
-	 * set field kind
+	 * Set the kind of the field
 	 *
-	 * @param  Kind $kind
+	 * @param  Kind $kind the new kind of the field
 	 * @return void
 	 */
 	public function setKind(Kind $kind): void
@@ -107,7 +111,7 @@ class Field
 	}
 
 	/**
-	 * delete a field
+	 * Delete the field
 	 *
 	 * @return void
 	 */
@@ -120,7 +124,7 @@ class Field
 	}
 
 	/**
-	 * get field exercise
+	 * Get the exercise of the field
 	 *
 	 * @return Exercise
 	 */
@@ -131,10 +135,18 @@ class Field
 }
 
 /**
- * FieldNotFoundException
+ * This exception is thrown when a field is not found
  */
 class FieldNotFoundException extends LooperException
 {
+	/**
+	 * The constructor of the FieldNotFoundException class
+	 *
+	 * @param  string $message the message of the exception default 'The field does not exist'
+	 * @param  int $code the code of the exception default 0
+	 * @param  Exception $previous the previous exception default null
+	 * @return void
+	 */
 	public function __construct($message = 'The field does not exist', $code = 0, Exception $previous = null)
 	{
 		parent::__construct(404, 'Field not found', $message, $code, $previous);

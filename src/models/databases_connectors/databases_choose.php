@@ -36,7 +36,7 @@ class DatabasesChoose
 	/**
 	 * get dataases access implement with the correct databases
 	 *
-	 * @return DatabasesAccess
+	 * @return DatabasesAccess the database access
 	 */
 	public function getDatabase(): DatabasesAccess
 	{

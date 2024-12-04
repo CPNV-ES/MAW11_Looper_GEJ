@@ -6,13 +6,16 @@
  * @description  Looper exception class
  */
 
+/**
+ * This class represents an exception thrown by the looper
+ */
 class LooperException extends Exception
 {
 	private int $httpReturnCode = 0;
 	private string $httpErrorMessage = '';
 
 	/**
-	 * __construct
+	 * The constructor of the looper exception
 	 *
 	 * @param  int $httpReturnCode http error code
 	 * @param  string $httpErrorMessage http error message
@@ -31,7 +34,7 @@ class LooperException extends Exception
 	/**
 	 * get http return code
 	 *
-	 * @return int
+	 * @return int http return code
 	 */
 	public function getReturnCode(): int
 	{
@@ -41,7 +44,7 @@ class LooperException extends Exception
 	/**
 	 * get http error message
 	 *
-	 * @return string
+	 * @return string http error message
 	 */
 	public function getErrorMessage(): string
 	{

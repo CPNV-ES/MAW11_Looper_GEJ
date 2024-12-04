@@ -17,9 +17,9 @@ class Postgresql
 	/**
 	 * select (all select, returning at the end of an insert) basicly all that is returning somethings
 	 *
-	 * @param  string $squery
-	 * @param  array $args
-	 * @return array[array]
+	 * @param  string $squery the Sql query (default: '')
+	 * @param  array $args (default: [])
+	 * @return array[array] the result of the query
 	 */
 	public function select(string $squery, array $args = [])
 	{
@@ -37,8 +37,8 @@ class Postgresql
 	/**
 	 * modify (insert, update) basicly all that isn't returning anything
 	 *
-	 * @param  string $squery
-	 * @param  array $args
+	 * @param  string $squery The Sql query (default: '')
+	 * @param  array $args (default: [])
 	 * @return void
 	 */
 	public function modify(string $squery, array $args = [])

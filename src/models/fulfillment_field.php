@@ -9,18 +9,19 @@
 require_once MODEL_DIR . '/field.php';
 
 /**
- * FulfillmentField
- *
+ * This class is the fulfillment field buiness logic of the application herited from a field
  */
 class FulfillmentField extends Field
 {
 	private $fulfillment_id;
 
 	/**
-	 * Contructor of the FulfillmentField
+	 * constructor of the fulfillment field
 	 *
-	 * @param  int $field_id
-	 * @param  int $fulfillment_id
+	 * @param  int $field_id the id of the field to construct the field parent
+	 * @param  int $fulfillment_id the id of the fulfillment
+	 * @throws FulfillmentNotFoundException if the fulfillment does not exist
+	 * @throws FieldNotFoundException if the field does not exist
 	 * @return void
 	 */
 	public function __construct(int $field_id, int $fulfillment_id)
@@ -35,9 +36,9 @@ class FulfillmentField extends Field
 	}
 
 	/**
-	 * get fulfillment id
+	 * Get the id of the fulfillment
 	 *
-	 * @return int
+	 * @return int the id of the fulfillment
 	 */
 	public function getFulfillmentId()
 	{
@@ -45,9 +46,9 @@ class FulfillmentField extends Field
 	}
 
 	/**
-	 * get fulfillment body
+	 * Get the body of the fulfillment
 	 *
-	 * @return string
+	 * @return string the body of the fulfillment
 	 */
 	public function getBody()
 	{
@@ -55,9 +56,9 @@ class FulfillmentField extends Field
 	}
 
 	/**
-	 * set body
+	 * Set the body of the fulfillment
 	 *
-	 * @param  string $body
+	 * @param  string $body the body of the fulfillment
 	 * @return void
 	 */
 	public function setBody(string $body)
