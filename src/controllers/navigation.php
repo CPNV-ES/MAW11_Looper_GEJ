@@ -82,13 +82,13 @@ class Navigation
 		include VIEW_DIR . '/manage_field.php';
 	}
 
-/**
-     * Display the edit field page.
-     *
-     * @param int $exercise_id The ID of the exercise.
-     * @param int $id The ID of the field to edit.
-     * @return void
-     */
+	/**
+		 * Display the edit field page.
+		 *
+		 * @param int $exercise_id The ID of the exercise.
+		 * @param int $id The ID of the field to edit.
+		 * @return void
+		 */
 	public function editAField(int $exercise_id, int $id)
 	{
 		$exercise = new Exercise($exercise_id);
