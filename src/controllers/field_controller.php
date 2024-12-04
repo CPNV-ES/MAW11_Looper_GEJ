@@ -17,7 +17,7 @@ class FieldController
 {
 	/**
 	 * This method creates a new field within an existing exercise, using the label and value kind
-     * provided by the user in `$_POST['field']`.
+	 * provided by the user in `$_POST['field']`.
 	 *
 	 * @param int $exercise_id The ID of the exercise for which the field is being created.
 	 * @return void
@@ -91,8 +91,8 @@ class FieldController
 
 	/**
 	 * This method converts a string representation of a field kind to the corresponding enumeration value.
-     * It handles different kinds, such as `single_line_list`, `multi_line`, and `single_line`, and returns
-     * the appropriate enumeration.
+	 * It handles different kinds, such as `single_line_list`, `multi_line`, and `single_line`, and returns
+	 * the appropriate enumeration.
 	 *
 	 * @param  string $kind The kind of the field as a string.
 	 * @return Kind The corresponding `Kind` enumeration value.
