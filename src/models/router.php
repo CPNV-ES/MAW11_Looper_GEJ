@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description  This is the router buiness logic and route path
+ */
+
+/**
+ * This class is the router buiness logic of the application
+ */
 class Router
 {
 	private array $controller_entry = [
@@ -48,6 +57,13 @@ class Router
 		]
 	];
 
+	/**
+	 * run the good function in the controller path with specified path
+	 *
+	 * @param  int $request_method the method of the request
+	 * @param  int $request_uri the uri of the request
+	 * @return bool true if runned successfully instead false
+	 */
 	public function run($request_method, $request_uri)
 	{
 		foreach ($this->controller_entry as $class => $routes) {
@@ -64,6 +80,7 @@ class Router
 
 	private function callRoute($request_method, $request_uri, $class, $routes)
 	{
+		// Iterate on all the route and check if it's the same route then launch the right controller on this route
 		foreach ($routes[$request_method] as $route => $method) {
 			$same_route = $this->isSameRoute($route, request_uri: $request_uri);
 

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description Create an exercise view
+ */
 $title = 'ExerciseLooper';
 
 ob_start();

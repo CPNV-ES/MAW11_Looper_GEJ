@@ -14,18 +14,20 @@ This is a project for the MAW11 course. We're supposed to rewrite [this website]
 * Composer 2.7.8
 
 ### Configuration
-
-Make `.env` file 
-and put the 
-```env
-POSTGRES_USER=admin
-POSTGRES_PASSWORD=mysecretpassword
-PGADMIN_DEFAULT_EMAIL=admin@example.com
-PGADMIN_DEFAULT_PASSWORD=admin
-```
-or copy `.env.example`
+Before starting the docker environment, you need to follow the following steps:
+You need to setup the `.env` file.
+Copy the `.env.example` file and change the environment variables content.
 
 ## Deployment
+
+You need to install composer requirements :
+`composer install`
+
+Now you can start the docker stack.
+
+If you want xdebug and phpmyadmin, use the dev environment. If you dont need them, use the production environment.
+
+
 ### On dev environment
 #### Docker 
 
@@ -39,11 +41,14 @@ docker-compose up
 php -S localhost:8000 -t public
 ```
 
-### On integration environment
+### On prod environment
 
 ```bash
 docker-compose -f docker-compose-prod.yml up 
 ```
+
+The application will be available at [127.0.0.1:8080](http://127.0.0.1:8080)
+
 
 ## Directory structure
 

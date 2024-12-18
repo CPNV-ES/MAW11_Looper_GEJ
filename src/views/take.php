@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description submit or edit an exericise
+ */
+
 $title = 'ExerciseLooper';
 
 ob_start();
@@ -28,10 +34,10 @@ ob_start();
 					for="<?=$field->getId()?>"><?=$field->getLabel()?></label>
 				<?php $body = $field instanceof FulfillmentField ? $field->getBody() : '' ?>
 				<?php if($field->getKind()->value == 0): ?>
-					<input required type="text" value="<?= $body ?>" id="<?=$field->getId()?>"
+					<input type="text" value="<?= $body ?>" id="<?=$field->getId()?>"
 						name="fulfillment[answers_attributes][<?=$field->getId()?>][value]">
 				<?php else: ?>
-					<textarea required
+					<textarea
 						name="fulfillment[answers_attributes][<?=$field->getId()?>][value]"><?= $body ?></textarea>
 				<?php endif; ?>
 			</div>

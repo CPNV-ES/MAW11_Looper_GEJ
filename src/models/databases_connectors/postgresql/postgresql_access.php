@@ -1,12 +1,32 @@
 <?php
 
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description PostgresqlAccess class implementing DatabasesAccess
+ */
+
 require MODEL_DIR . '/databases_connectors/databases_access.php';
 require MODEL_DIR . '/databases_connectors/postgresql/postgresql.php';
 
+/**
+ * Class PostgresqlAccess
+ *
+ * Provides an implementation of DatabasesAccess for PostgreSQL databases.
+ */
 class PostgresqlAccess implements DatabasesAccess
 {
 	private $postgresql;
 
+	/**
+	 * PostgresqlAccess constructor.
+	 *
+	 * @param string $host The host of the PostgreSQL server.
+	 * @param int $port The port of the PostgreSQL server.
+	 * @param string $dbname The name of the database.
+	 * @param string $postgres_user The username for the PostgreSQL server.
+	 * @param string $postgres_password The password for the PostgreSQL server.
+	 */
 	public function __construct($host, $port, $dbname, $postgres_user, $postgres_password)
 	{
 		$this->postgresql = new Postgresql($host, $port, $dbname, $postgres_user, $postgres_password);

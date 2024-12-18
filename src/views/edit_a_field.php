@@ -1,4 +1,10 @@
 <?php
+/**
+ * @author Ethann Schneider, Guillaume Aubert, Jomana Kaempf
+ * @version 29.11.2024
+ * @description Edit a field view
+ */
+
 $title = 'ExerciseLooper';
 
 $kind = $field->getKind();
